@@ -10,7 +10,7 @@ title-slide-attributes:
   data-background-opacity: "0.5"
 format: 
   revealjs:
-    slideNumber: c/t
+    slide-number: c/t
     scrollable: true
 execute:
   echo: true
@@ -1131,11 +1131,3 @@ data_df |>
 - Financial analysts and researchers may combine different smoothing techniques
 - Advanced methods like wavelets or machine learning algorithms can be used
 - Helps extract meaningful insights from complex financial time series data
-
-## Summary
-
-- EDA in time 
-
-- Smoothing techniques are essential for analyzing financial time series data
-- Moving averages, exponential moving averages, and other methods are widely used
-- Each method has its own advantages, limitations, and specific use cases
