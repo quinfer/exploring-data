@@ -1,5 +1,5 @@
 ---
-title: "Exploratory Data Analysis" 
+title: "Exploratory Data Analysis <br> Time Series Smoothing" 
 author: "Barry Quinn <br> Digital Dave"
 footer: "Advanced Financial Data Analytics"
 css: mycssblend.css
@@ -854,8 +854,6 @@ p_t-p_{t-1} = a_t \\
 \text{where}
 \end{align*}
 
-
-
 ## Prediction and EMH {.small}
 
   - High quality models identify the signal from the noise in financial data.
@@ -863,3 +861,281 @@ p_t-p_{t-1} = a_t \\
   - The **noise** is the irregular pattern which occurrs by chance and unlikely to repeat.
   - Overfitting or data snooping can result in your model capturing both **signal** and **noise**.
   - Overfitted models usually produce poor predictions and inferences.
+
+---
+title: "Financial Time Series Analysis Techniques"
+format: revealjs
+---
+
+# Time Series Modelling
+
+## Time Series Modelling
+- Financial time series data often exhibit patterns, trends, and fluctuations
+- Appropriate modelling and processing techniques are required to extract meaningful insights
+- Two commonly used approaches:
+  - ARIMA (Autoregressive Integrated Moving Average) modelling
+  - Smoothing techniques
+
+## ARIMA Modelling
+
+- Class of statistical models widely used for time series forecasting and analysis
+- Combines autoregressive (AR) and moving average (MA) components
+- Handles non-stationarity through differencing
+
+## Key Aspects of ARIMA Modelling {.small}
+
+::: incremental
+1. Stationarity
+   - Assumes time series is stationary (constant mean, variance, and autocorrelation)
+   - Differencing is applied to achieve stationarity if data is non-stationary
+
+2. Autocorrelation
+   - Captures the data's autocorrelation structure
+   - Future values are influenced by past values and/or past errors
+
+3. Model Identification
+   - Specified by three parameters: p (AR order), d (differencing degree), q (MA order)
+   - Determined through iterative model identification, estimation, and diagnostic checking
+
+4. Forecasting
+   - Generates forecasts for future periods once an appropriate ARIMA model is identified and estimated
+:::
+
+## Suitability of ARIMA Models
+
+- Capturing underlying patterns and dynamics of time series data
+- Handling trends, seasonality, and autocorrelation structures
+- Widely used in finance for forecasting stock prices, exchange rates, and economic indicators
+
+## Smoothing Techniques
+
+- Reduce noise or irregularities in time series data
+- Reveal the underlying trend or signal
+- Apply filters or weighted averages to smooth out fluctuations
+- Do not explicitly model the autocorrelation structure
+
+## Standard Smoothing Techniques
+
+1. Moving Averages (Simple, Exponential, Weighted)
+2. Savitzky-Golay Filter
+3. Lowess (Locally Weighted Scatterplot Smoothing)
+4. Kalman Filter
+
+## Suitability of Smoothing Techniques
+
+- Extracting the underlying trend or signal from noisy data
+- Preprocessing step before further analysis or visualization
+- Focus on denoising the data and revealing the underlying trend or signal
+
+## Choosing the Right Approach
+
+- Depends on the specific objectives and characteristics of the financial time series data
+- ARIMA models:
+  - Forecasting future values
+  - Accounting for autocorrelation and capturing underlying patterns
+- Smoothing techniques:
+  - Denoising the data and revealing the underlying trend or signal
+
+## Combining Approaches
+
+- ARIMA modelling and smoothing techniques can be combined
+- Used in conjunction with other techniques (decomposition methods, machine learning algorithms)
+- Helps gain deeper insights into financial time series data
+
+## Financial time series smoothing
+
+- Financial time series data often exhibit noise, irregularities, and fluctuations
+- Smoothing techniques help reduce random variations and reveal underlying trends
+- This presentation explores various smoothing methods used in financial time series analysis
+
+## some data {visibility='hidden'}
+
+```{r}
+# Load required packages
+library(quantmod)
+library(TTR)
+library(ggplot2)
+library(dlm)
+library(signal)
+library(stats)
+
+# Retrieve historical stock data for Apple Inc. (AAPL)
+getSymbols("AAPL", from = "2015-01-01", to = "2020-12-31")
+
+# Extract the adjusted closing prices
+aapl_prices <- Cl(AAPL)
+```
+
+
+
+## Simple Moving Average (SMA)
+- Basic smoothing technique that calculates the average of a fixed number of data points
+- Formula: $SMA(t) = \frac{y(t) + y(t-1) + ... + y(t-n+1)}{n}$
+- Widely used in technical analysis for identifying trends and generating trading signals
+- Advantages: Easy to understand and implement, effective for removing high-frequency noise
+- Limitations: Introduces a lag, sensitive to outliers, may distort underlying patterns
+
+## Simple Moving Average (SMA) {.small}
+
+```{r}
+#| echo: true
+# Simple Moving Average (SMA)
+sma_20 <- SMA(aapl_prices, n = 20)
+# Plot SMA
+ggplot() +
+  geom_line(aes(x = index(aapl_prices), y = as.numeric(aapl_prices)), color = "black") +
+  geom_line(aes(x = index(sma_20), y = as.numeric(sma_20)), color = "red") +
+  labs(title = "Simple Moving Average (SMA)",
+       x = "Time",
+       y = "Adjusted Close") +
+  scale_color_manual(name = "Series", values = c("black", "red"), labels = c("Price", "SMA")) +
+  theme_minimal()
+```
+
+## Exponential Moving Average (EMA)
+
+- Assigns exponentially decreasing weights to older data points
+- Formula: $EMA(t) = \alpha \times y(t) + (1 - \alpha) \times EMA(t-1)$
+- Commonly used in technical analysis, forecasting, and signal processing
+- Advantages: Responds quickly to changes, less lag than SMA, less sensitive to outliers
+- Limitations: Requires tuning the smoothing parameter ($\alpha$)
+
+## Exponential Moving Average (EMA) {.small}
+```{r}
+#| echo: true
+# Exponential Moving Average (EMA)
+ema_20 <- EMA(aapl_prices, n = 20)
+ggplot() +
+  geom_line(aes(x = index(aapl_prices), y = as.numeric(aapl_prices)), color = "black") +
+  geom_line(aes(x = index(ema_20), y = as.numeric(ema_20)), color = "blue") +
+  labs(title = "Exponential Moving Average (EMA)",
+       x = "Time",
+       y = "Adjusted Close") +
+  scale_color_manual(name = "Series", values = c("black", "blue"), labels = c("Price", "EMA")) +
+  theme_minimal()
+```
+
+## Weighted Moving Average (WMA)
+
+- Assigns different weights to data points within the window
+- Formula: $WMA(t) = \frac{w_1 \times y(t) + w_2 \times y(t-1) + ... + w_n \times y(t-n+1)}{w_1 + w_2 + ... + w_n}$
+- Used in technical analysis, signal processing, and trend analysis
+- Advantages: Allows for customized weighting schemes, can better capture underlying patterns
+- Limitations: Requires careful selection of weights, inappropriate weights can distort the series
+
+## Weighted Moving Average (WMA) {.small}
+
+```{r}
+#| echo: true
+wma_custom <- WMA(aapl_prices, n = 5, wts = c(0.1, 0.2, 0.3, 0.2, 0.2))
+ggplot() +
+  geom_line(aes(x = index(aapl_prices), y = as.numeric(aapl_prices)), color = "black") +
+  geom_line(aes(x = index(wma_custom), y = as.numeric(wma_custom)), color = "green") +
+  labs(title = "Weighted Moving Average (WMA)",
+       x = "Time",
+       y = "Adjusted Close") +
+  scale_color_manual(name = "Series", values = c("black", "green"), labels = c("Price", "WMA")) +
+  theme_minimal()
+```
+
+## Savitzky-Golay Filter
+
+- Performs local polynomial regression on a moving window of data points
+- Widely used in signal processing, spectroscopy, and financial time series analysis
+- Advantages: Preserves data features (peaks and valleys), handles noisy data effectively
+- Limitations: Computationally expensive, choice of polynomial order and window size affects results
+
+## Savitzky-Golay Filter {.small}
+
+```{r}
+#| echo: true
+sg_filter <- sgolayfilt(aapl_prices, p = 3, n = 21)
+# Plot Savitzky-Golay Filter
+ggplot() +
+  geom_line(aes(x = index(aapl_prices), y = as.numeric(aapl_prices)), color = "black") +
+  geom_line(aes(x = index(aapl_prices), y = as.numeric(sg_filter)), color = "purple") +
+  labs(title = "Savitzky-Golay Filter",
+       x = "Time",
+       y = "Adjusted Close") +
+  scale_color_manual(name = "Series", values = c("black", "purple"), labels = c("Price", "SG Filter")) +
+  theme_minimal()
+```
+
+## Lowess (Locally Weighted Scatterplot Smoothing)
+
+- Non-parametric regression technique that fits a low-degree polynomial to localized subsets of data
+- Useful for identifying non-linear trends and patterns in financial time series data
+- Advantages: Effective for handling non-linear relationships, robust to outliers, captures complex patterns
+- Limitations: Computationally intensive, sensitive to the choice of smoothing parameters
+
+## Lowess (Locally Weighted Scatterplot Smoothing) {.small}
+
+```{r}
+#| echo: true
+# Lowess Smoothing
+lowess_smooth <- lowess(aapl_prices)
+# Plot Lowess Smoothing
+ggplot() +
+  geom_line(aes(x = index(aapl_prices), y = as.numeric(aapl_prices)), color = "black") +
+  geom_line(aes(x = index(aapl_prices), y = as.numeric(lowess_smooth$y)), color = "orange") +
+  labs(title = "Lowess Smoothing",
+       x = "Time",
+       y = "Adjusted Close") +
+  scale_color_manual(name = "Series", values = c("black", "orange"), labels = c("Price", "Lowess")) +
+  theme_minimal()
+```
+
+## Kalman Filter
+
+- Recursive algorithm that estimates the actual state of a dynamic system from noisy observations
+- Widely used in finance for portfolio optimization, risk management, and forecasting
+- Advantages: Optimal for linear systems with Gaussian noise, handles missing data, provides state estimates and uncertainties
+- Limitations: Assumes linear system model and Gaussian noise, performance degrades for non-linear or non-Gaussian systems
+
+## Kalman Filter {.small}
+
+```{r}
+```{r}
+#| echo: true
+# Apply the Kalman filter
+s <- dlmSmooth(aapl_prices, dlmModPoly(1, dV = 15100, dW = 1470))
+
+# Create a data frame for plotting
+data_df <- data.frame(Date = index(aapl_prices),
+                      Price = as.numeric(aapl_prices),
+                      Kalman = as.numeric(dropFirst(s$s)))
+
+# Plot the results using ggplot
+data_df |> 
+  ggplot(aes(x = Date)) +
+  geom_line(aes(y = Price, color = "Price")) +
+  geom_line(aes(y = Kalman, color = "Kalman")) +
+  labs(title = "Apple Inc. (AAPL) Stock Prices",
+       x = "Time",
+       y = "Adjusted Close") +
+  scale_color_manual(name = "Series", values = c("Price" = "black", "Kalman" = "blue")) +
+  theme_minimal()
+```
+
+## Choosing the Right Smoothing Technique
+
+- Depends on the characteristics of the financial time series data
+- Consider the desired smoothing level and specific application or analysis goals
+- Explore multiple smoothing methods and compare their performance
+- Consider the trade-off between smoothing and preserving important features or patterns
+- Excessive smoothing can lead to loss of valuable information
+- Insufficient smoothing may fail to effectively remove unwanted noise
+
+## Combining Smoothing Techniques
+
+- Financial analysts and researchers may combine different smoothing techniques
+- Advanced methods like wavelets or machine learning algorithms can be used
+- Helps extract meaningful insights from complex financial time series data
+
+## Summary
+
+- EDA in time 
+
+- Smoothing techniques are essential for analyzing financial time series data
+- Moving averages, exponential moving averages, and other methods are widely used
+- Each method has its own advantages, limitations, and specific use cases

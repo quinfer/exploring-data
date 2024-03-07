@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.16">
 
   <meta name="author" content="Barry Quinn   Digital Dave">
-  <title>Exploratory Data Analysis</title>
+  <title>Financial Time Series Analysis Techniques</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -310,7 +310,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -402,7 +401,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="title-slide.png" data-background-opacity="0.5" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">Exploratory Data Analysis</h1>
+  <h1 class="title">Financial Time Series Analysis Techniques</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -620,8 +619,8 @@ Barry Quinn <br> Digital Dave
 <span id="cb7-2"><a href=""></a></span>
 <span id="cb7-3"><a href=""></a>tsfe<span class="sc">::</span>ni_hsales <span class="sc">%&gt;%</span> <span class="fu">datatable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-422cce82d49f4535d69d" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-422cce82d49f4535d69d">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64"],["Q1 2005","Q2 2005","Q3 2005","Q4 2005","Q1 2006","Q2 2006","Q3 2006","Q4 2006","Q1 2007","Q2 2007","Q3 2007","Q4 2007","Q1 2008","Q2 2008","Q3 2008","Q4 2008","Q1 2009","Q2 2009","Q3 2009","Q4 2009","Q1 2010","Q2 2010","Q3 2010","Q4 2010","Q1 2011","Q2 2011","Q3 2011","Q4 2011","Q1 2012","Q2 2012","Q3 2012","Q4 2012","Q1 2013","Q2 2013","Q3 2013","Q4 2013","Q1 2014","Q2 2014","Q3 2014","Q4 2014","Q1 2015","Q2 2015","Q3 2015","Q4 2015","Q1 2016","Q2 2016","Q3 2016","Q4 2016","Q1 2017","Q2 2017","Q3 2017","Q4 2017","Q1 2018","Q2 2018","Q3 2018","Q4 2018","Q1 2019","Q2 2019","Q3 2019","Q4 2019","Q1 2020","Q2 2020","Q3 2020","Q4 2020"],[772,2051,2106,2472,2194,2742,2828,2880,2214,2380,1819,1228,815,982,647,633,580,755,851,984,657,721,823,765,626,677,829,824,819,791,952,1018,919,998,1123,1384,1270,1432,1510,1651,1322,1500,1640,1780,1734,1416,1767,1827,1508,1753,1856,2021,1642,1792,1994,2085,1570,1877,2023,1996,1581,626,1526,2272],[2164,5922,6337,7152,6393,8076,8016,7949,6476,6941,4945,3050,2187,2333,1606,1617,1416,2072,2384,2601,1847,1975,1883,2049,1775,1943,2379,2254,2356,2336,2606,2753,2519,2877,3089,3673,3362,3832,3976,4201,3294,3789,4199,4396,4421,3465,4205,4256,3700,4370,4689,4777,3832,4406,4575,4689,3614,4323,4746,4761,3706,1304,3467,5129],[2936,7973,8443,9624,8587,10818,10844,10829,8690,9321,6764,4278,3002,3315,2253,2250,1996,2827,3235,3585,2504,2696,2706,2814,2401,2620,3208,3078,3175,3127,3558,3771,3438,3875,4212,5057,4632,5264,5486,5852,4616,5289,5839,6176,6155,4881,5972,6083,5208,6123,6545,6798,5474,6198,6569,6774,5184,6200,6769,6757,5287,1930,4993,7401]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Quarter Year<\/th>\n      <th>Rural<\/th>\n      <th>Urban<\/th>\n      <th>Total Verified Sales<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Quarter Year","targets":1},{"name":"Rural","targets":2},{"name":"Urban","targets":3},{"name":"Total Verified Sales","targets":4}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2b435342900c16928706" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2b435342900c16928706">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64"],["Q1 2005","Q2 2005","Q3 2005","Q4 2005","Q1 2006","Q2 2006","Q3 2006","Q4 2006","Q1 2007","Q2 2007","Q3 2007","Q4 2007","Q1 2008","Q2 2008","Q3 2008","Q4 2008","Q1 2009","Q2 2009","Q3 2009","Q4 2009","Q1 2010","Q2 2010","Q3 2010","Q4 2010","Q1 2011","Q2 2011","Q3 2011","Q4 2011","Q1 2012","Q2 2012","Q3 2012","Q4 2012","Q1 2013","Q2 2013","Q3 2013","Q4 2013","Q1 2014","Q2 2014","Q3 2014","Q4 2014","Q1 2015","Q2 2015","Q3 2015","Q4 2015","Q1 2016","Q2 2016","Q3 2016","Q4 2016","Q1 2017","Q2 2017","Q3 2017","Q4 2017","Q1 2018","Q2 2018","Q3 2018","Q4 2018","Q1 2019","Q2 2019","Q3 2019","Q4 2019","Q1 2020","Q2 2020","Q3 2020","Q4 2020"],[772,2051,2106,2472,2194,2742,2828,2880,2214,2380,1819,1228,815,982,647,633,580,755,851,984,657,721,823,765,626,677,829,824,819,791,952,1018,919,998,1123,1384,1270,1432,1510,1651,1322,1500,1640,1780,1734,1416,1767,1827,1508,1753,1856,2021,1642,1792,1994,2085,1570,1877,2023,1996,1581,626,1526,2272],[2164,5922,6337,7152,6393,8076,8016,7949,6476,6941,4945,3050,2187,2333,1606,1617,1416,2072,2384,2601,1847,1975,1883,2049,1775,1943,2379,2254,2356,2336,2606,2753,2519,2877,3089,3673,3362,3832,3976,4201,3294,3789,4199,4396,4421,3465,4205,4256,3700,4370,4689,4777,3832,4406,4575,4689,3614,4323,4746,4761,3706,1304,3467,5129],[2936,7973,8443,9624,8587,10818,10844,10829,8690,9321,6764,4278,3002,3315,2253,2250,1996,2827,3235,3585,2504,2696,2706,2814,2401,2620,3208,3078,3175,3127,3558,3771,3438,3875,4212,5057,4632,5264,5486,5852,4616,5289,5839,6176,6155,4881,5972,6083,5208,6123,6545,6798,5474,6198,6569,6774,5184,6200,6769,6757,5287,1930,4993,7401]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Quarter Year<\/th>\n      <th>Rural<\/th>\n      <th>Urban<\/th>\n      <th>Total Verified Sales<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Quarter Year","targets":1},{"name":"Rural","targets":2},{"name":"Urban","targets":3},{"name":"Total Verified Sales","targets":4}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -785,7 +784,7 @@ Barry Quinn <br> Digital Dave
 <span id="cb12-3"><a href=""></a>    <span class="st">"mean = "</span>,<span class="fu">mean</span>(mc.closing),</span>
 <span id="cb12-4"><a href=""></a>    <span class="st">"sd = "</span>,<span class="fu">sd</span>(mc.closing))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>median =  48.7296 mad sd =  3.396684 mean =  48.85299 sd =  3.434517</code></pre>
+<pre><code>median =  48.71241 mad sd =  3.437415 mean =  48.85147 sd =  3.454573</code></pre>
 </div>
 </div>
 </section>
@@ -874,7 +873,7 @@ Barry Quinn <br> Digital Dave
 <li>A traditional assumption in financial analysis is the simple returns are independently and identically distributed (iid) as normal with a fixed mean <span class="math inline">\(m_1\)</span> and variance <span class="math inline">\(m_2\)</span>.</li>
 </ul>
 </section>
-<section id="why-normal-asset-returns-1" class="slide level2 scrollable">
+<section id="why-normal-asset-returns-1" class="slide level2">
 <h2>Why normal asset returns?</h2>
 <ul>
 <li>The previous assumption is unrealistic in a number of ways:</li>
@@ -1428,7 +1427,7 @@ pattern exists when data exhibit rises and falls that are <strong>not of fixed p
 <li>Does <code>dgoog</code> look like white noise?</li>
 </ul>
 </section>
-<section id="financial-data-forecastability" class="slide level2 scrollable">
+<section id="financial-data-forecastability" class="slide level2">
 <h2>Financial Data Forecastability</h2>
 <ul>
 <li>Predictability of an event or quantity depends on several factors</li>
@@ -1462,6 +1461,313 @@ p_t-p_{t-1} = a_t \\
 <li>The <strong>noise</strong> is the irregular pattern which occurrs by chance and unlikely to repeat.</li>
 <li>Overfitting or data snooping can result in your model capturing both <strong>signal</strong> and <strong>noise</strong>.</li>
 <li>Overfitted models usually produce poor predictions and inferences.</li>
+</ul>
+</section></section>
+<section>
+<section id="time-series-modelling" class="title-slide slide level1 center">
+<h1>Time Series Modelling</h1>
+
+</section>
+<section id="time-series-modelling-1" class="slide level2">
+<h2>Time Series Modelling</h2>
+<ul>
+<li>Financial time series data often exhibit patterns, trends, and fluctuations</li>
+<li>Appropriate modelling and processing techniques are required to extract meaningful insights</li>
+<li>Two commonly used approaches:
+<ul>
+<li>ARIMA (Autoregressive Integrated Moving Average) modelling</li>
+<li>Smoothing techniques</li>
+</ul></li>
+</ul>
+</section>
+<section id="arima-modelling" class="slide level2">
+<h2>ARIMA Modelling</h2>
+<ul>
+<li>Class of statistical models widely used for time series forecasting and analysis</li>
+<li>Combines autoregressive (AR) and moving average (MA) components</li>
+<li>Handles non-stationarity through differencing</li>
+</ul>
+</section>
+<section id="key-aspects-of-arima-modelling" class="slide level2 small">
+<h2>Key Aspects of ARIMA Modelling</h2>
+<div>
+<ol type="1">
+<li class="fragment">Stationarity
+<ul>
+<li class="fragment">Assumes time series is stationary (constant mean, variance, and autocorrelation)</li>
+<li class="fragment">Differencing is applied to achieve stationarity if data is non-stationary</li>
+</ul></li>
+<li class="fragment">Autocorrelation
+<ul>
+<li class="fragment">Captures the data’s autocorrelation structure</li>
+<li class="fragment">Future values are influenced by past values and/or past errors</li>
+</ul></li>
+<li class="fragment">Model Identification
+<ul>
+<li class="fragment">Specified by three parameters: p (AR order), d (differencing degree), q (MA order)</li>
+<li class="fragment">Determined through iterative model identification, estimation, and diagnostic checking</li>
+</ul></li>
+<li class="fragment">Forecasting
+<ul>
+<li class="fragment">Generates forecasts for future periods once an appropriate ARIMA model is identified and estimated</li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section id="suitability-of-arima-models" class="slide level2">
+<h2>Suitability of ARIMA Models</h2>
+<ul>
+<li>Capturing underlying patterns and dynamics of time series data</li>
+<li>Handling trends, seasonality, and autocorrelation structures</li>
+<li>Widely used in finance for forecasting stock prices, exchange rates, and economic indicators</li>
+</ul>
+</section>
+<section id="smoothing-techniques" class="slide level2">
+<h2>Smoothing Techniques</h2>
+<ul>
+<li>Reduce noise or irregularities in time series data</li>
+<li>Reveal the underlying trend or signal</li>
+<li>Apply filters or weighted averages to smooth out fluctuations</li>
+<li>Do not explicitly model the autocorrelation structure</li>
+</ul>
+</section>
+<section id="standard-smoothing-techniques" class="slide level2">
+<h2>Standard Smoothing Techniques</h2>
+<ol type="1">
+<li>Moving Averages (Simple, Exponential, Weighted)</li>
+<li>Savitzky-Golay Filter</li>
+<li>Lowess (Locally Weighted Scatterplot Smoothing)</li>
+<li>Kalman Filter</li>
+</ol>
+</section>
+<section id="suitability-of-smoothing-techniques" class="slide level2">
+<h2>Suitability of Smoothing Techniques</h2>
+<ul>
+<li>Extracting the underlying trend or signal from noisy data</li>
+<li>Preprocessing step before further analysis or visualization</li>
+<li>Focus on denoising the data and revealing the underlying trend or signal</li>
+</ul>
+</section>
+<section id="choosing-the-right-approach" class="slide level2">
+<h2>Choosing the Right Approach</h2>
+<ul>
+<li>Depends on the specific objectives and characteristics of the financial time series data</li>
+<li>ARIMA models:
+<ul>
+<li>Forecasting future values</li>
+<li>Accounting for autocorrelation and capturing underlying patterns</li>
+</ul></li>
+<li>Smoothing techniques:
+<ul>
+<li>Denoising the data and revealing the underlying trend or signal</li>
+</ul></li>
+</ul>
+</section>
+<section id="combining-approaches" class="slide level2">
+<h2>Combining Approaches</h2>
+<ul>
+<li>ARIMA modelling and smoothing techniques can be combined</li>
+<li>Used in conjunction with other techniques (decomposition methods, machine learning algorithms)</li>
+<li>Helps gain deeper insights into financial time series data</li>
+</ul>
+</section>
+<section id="financial-time-series-smoothing" class="slide level2">
+<h2>Financial time series smoothing</h2>
+<ul>
+<li>Financial time series data often exhibit noise, irregularities, and fluctuations</li>
+<li>Smoothing techniques help reduce random variations and reveal underlying trends</li>
+<li>This presentation explores various smoothing methods used in financial time series analysis</li>
+</ul>
+</section>
+
+<section id="simple-moving-average-sma" class="slide level2">
+<h2>Simple Moving Average (SMA)</h2>
+<ul>
+<li>Basic smoothing technique that calculates the average of a fixed number of data points</li>
+<li>Formula: <span class="math inline">\(SMA(t) = \frac{y(t) + y(t-1) + ... + y(t-n+1)}{n}\)</span></li>
+<li>Widely used in technical analysis for identifying trends and generating trading signals</li>
+<li>Advantages: Easy to understand and implement, effective for removing high-frequency noise</li>
+<li>Limitations: Introduces a lag, sensitive to outliers, may distort underlying patterns</li>
+</ul>
+</section>
+<section id="simple-moving-average-sma-1" class="slide level2 small">
+<h2>Simple Moving Average (SMA)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="co"># Simple Moving Average (SMA)</span></span>
+<span id="cb34-2"><a href=""></a>sma_20 <span class="ot">&lt;-</span> <span class="fu">SMA</span>(aapl_prices, <span class="at">n =</span> <span class="dv">20</span>)</span>
+<span id="cb34-3"><a href=""></a><span class="co"># Plot SMA</span></span>
+<span id="cb34-4"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb34-5"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(aapl_prices), <span class="at">y =</span> <span class="fu">as.numeric</span>(aapl_prices)), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb34-6"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(sma_20), <span class="at">y =</span> <span class="fu">as.numeric</span>(sma_20)), <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb34-7"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Simple Moving Average (SMA)"</span>,</span>
+<span id="cb34-8"><a href=""></a>       <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb34-9"><a href=""></a>       <span class="at">y =</span> <span class="st">"Adjusted Close"</span>) <span class="sc">+</span></span>
+<span id="cb34-10"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Series"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Price"</span>, <span class="st">"SMA"</span>)) <span class="sc">+</span></span>
+<span id="cb34-11"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch"></section>
+<section id="exponential-moving-average-ema" class="slide level2">
+<h2>Exponential Moving Average (EMA)</h2>
+<ul>
+<li>Assigns exponentially decreasing weights to older data points</li>
+<li>Formula: <span class="math inline">\(EMA(t) = \alpha \times y(t) + (1 - \alpha) \times EMA(t-1)\)</span></li>
+<li>Commonly used in technical analysis, forecasting, and signal processing</li>
+<li>Advantages: Responds quickly to changes, less lag than SMA, less sensitive to outliers</li>
+<li>Limitations: Requires tuning the smoothing parameter (<span class="math inline">\(\alpha\)</span>)</li>
+</ul>
+</section>
+<section id="exponential-moving-average-ema-1" class="slide level2 small">
+<h2>Exponential Moving Average (EMA)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="co"># Exponential Moving Average (EMA)</span></span>
+<span id="cb35-2"><a href=""></a>ema_20 <span class="ot">&lt;-</span> <span class="fu">EMA</span>(aapl_prices, <span class="at">n =</span> <span class="dv">20</span>)</span>
+<span id="cb35-3"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb35-4"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(aapl_prices), <span class="at">y =</span> <span class="fu">as.numeric</span>(aapl_prices)), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb35-5"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(ema_20), <span class="at">y =</span> <span class="fu">as.numeric</span>(ema_20)), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb35-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Exponential Moving Average (EMA)"</span>,</span>
+<span id="cb35-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb35-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Adjusted Close"</span>) <span class="sc">+</span></span>
+<span id="cb35-9"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Series"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"blue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Price"</span>, <span class="st">"EMA"</span>)) <span class="sc">+</span></span>
+<span id="cb35-10"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-29-1.png" width="960" class="r-stretch"></section>
+<section id="weighted-moving-average-wma" class="slide level2">
+<h2>Weighted Moving Average (WMA)</h2>
+<ul>
+<li>Assigns different weights to data points within the window</li>
+<li>Formula: <span class="math inline">\(WMA(t) = \frac{w_1 \times y(t) + w_2 \times y(t-1) + ... + w_n \times y(t-n+1)}{w_1 + w_2 + ... + w_n}\)</span></li>
+<li>Used in technical analysis, signal processing, and trend analysis</li>
+<li>Advantages: Allows for customized weighting schemes, can better capture underlying patterns</li>
+<li>Limitations: Requires careful selection of weights, inappropriate weights can distort the series</li>
+</ul>
+</section>
+<section id="weighted-moving-average-wma-1" class="slide level2 small">
+<h2>Weighted Moving Average (WMA)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>wma_custom <span class="ot">&lt;-</span> <span class="fu">WMA</span>(aapl_prices, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">wts =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>))</span>
+<span id="cb36-2"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb36-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(aapl_prices), <span class="at">y =</span> <span class="fu">as.numeric</span>(aapl_prices)), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb36-4"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(wma_custom), <span class="at">y =</span> <span class="fu">as.numeric</span>(wma_custom)), <span class="at">color =</span> <span class="st">"green"</span>) <span class="sc">+</span></span>
+<span id="cb36-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Weighted Moving Average (WMA)"</span>,</span>
+<span id="cb36-6"><a href=""></a>       <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb36-7"><a href=""></a>       <span class="at">y =</span> <span class="st">"Adjusted Close"</span>) <span class="sc">+</span></span>
+<span id="cb36-8"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Series"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"green"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Price"</span>, <span class="st">"WMA"</span>)) <span class="sc">+</span></span>
+<span id="cb36-9"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-30-1.png" width="960" class="r-stretch"></section>
+<section id="savitzky-golay-filter" class="slide level2">
+<h2>Savitzky-Golay Filter</h2>
+<ul>
+<li>Performs local polynomial regression on a moving window of data points</li>
+<li>Widely used in signal processing, spectroscopy, and financial time series analysis</li>
+<li>Advantages: Preserves data features (peaks and valleys), handles noisy data effectively</li>
+<li>Limitations: Computationally expensive, choice of polynomial order and window size affects results</li>
+</ul>
+</section>
+<section id="savitzky-golay-filter-1" class="slide level2 small">
+<h2>Savitzky-Golay Filter</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>sg_filter <span class="ot">&lt;-</span> <span class="fu">sgolayfilt</span>(aapl_prices, <span class="at">p =</span> <span class="dv">3</span>, <span class="at">n =</span> <span class="dv">21</span>)</span>
+<span id="cb37-2"><a href=""></a><span class="co"># Plot Savitzky-Golay Filter</span></span>
+<span id="cb37-3"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb37-4"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(aapl_prices), <span class="at">y =</span> <span class="fu">as.numeric</span>(aapl_prices)), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb37-5"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(aapl_prices), <span class="at">y =</span> <span class="fu">as.numeric</span>(sg_filter)), <span class="at">color =</span> <span class="st">"purple"</span>) <span class="sc">+</span></span>
+<span id="cb37-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Savitzky-Golay Filter"</span>,</span>
+<span id="cb37-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb37-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Adjusted Close"</span>) <span class="sc">+</span></span>
+<span id="cb37-9"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Series"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"purple"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Price"</span>, <span class="st">"SG Filter"</span>)) <span class="sc">+</span></span>
+<span id="cb37-10"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-31-1.png" width="960" class="r-stretch"></section>
+<section id="lowess-locally-weighted-scatterplot-smoothing" class="slide level2">
+<h2>Lowess (Locally Weighted Scatterplot Smoothing)</h2>
+<ul>
+<li>Non-parametric regression technique that fits a low-degree polynomial to localized subsets of data</li>
+<li>Useful for identifying non-linear trends and patterns in financial time series data</li>
+<li>Advantages: Effective for handling non-linear relationships, robust to outliers, captures complex patterns</li>
+<li>Limitations: Computationally intensive, sensitive to the choice of smoothing parameters</li>
+</ul>
+</section>
+<section id="lowess-locally-weighted-scatterplot-smoothing-1" class="slide level2 small">
+<h2>Lowess (Locally Weighted Scatterplot Smoothing)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="co"># Lowess Smoothing</span></span>
+<span id="cb38-2"><a href=""></a>lowess_smooth <span class="ot">&lt;-</span> <span class="fu">lowess</span>(aapl_prices)</span>
+<span id="cb38-3"><a href=""></a><span class="co"># Plot Lowess Smoothing</span></span>
+<span id="cb38-4"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb38-5"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(aapl_prices), <span class="at">y =</span> <span class="fu">as.numeric</span>(aapl_prices)), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb38-6"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">index</span>(aapl_prices), <span class="at">y =</span> <span class="fu">as.numeric</span>(lowess_smooth<span class="sc">$</span>y)), <span class="at">color =</span> <span class="st">"orange"</span>) <span class="sc">+</span></span>
+<span id="cb38-7"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Lowess Smoothing"</span>,</span>
+<span id="cb38-8"><a href=""></a>       <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb38-9"><a href=""></a>       <span class="at">y =</span> <span class="st">"Adjusted Close"</span>) <span class="sc">+</span></span>
+<span id="cb38-10"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Series"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"orange"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Price"</span>, <span class="st">"Lowess"</span>)) <span class="sc">+</span></span>
+<span id="cb38-11"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-32-1.png" width="960" class="r-stretch"></section>
+<section id="kalman-filter" class="slide level2">
+<h2>Kalman Filter</h2>
+<ul>
+<li>Recursive algorithm that estimates the actual state of a dynamic system from noisy observations</li>
+<li>Widely used in finance for portfolio optimization, risk management, and forecasting</li>
+<li>Advantages: Optimal for linear systems with Gaussian noise, handles missing data, provides state estimates and uncertainties</li>
+<li>Limitations: Assumes linear system model and Gaussian noise, performance degrades for non-linear or non-Gaussian systems</li>
+</ul>
+</section>
+<section id="kalman-filter-1" class="slide level2 small">
+<h2>Kalman Filter</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="co"># Apply the Kalman filter</span></span>
+<span id="cb39-2"><a href=""></a>s <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(aapl_prices, <span class="fu">dlmModPoly</span>(<span class="dv">1</span>, <span class="at">dV =</span> <span class="dv">15100</span>, <span class="at">dW =</span> <span class="dv">1470</span>))</span>
+<span id="cb39-3"><a href=""></a></span>
+<span id="cb39-4"><a href=""></a><span class="co"># Create a data frame for plotting</span></span>
+<span id="cb39-5"><a href=""></a>data_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Date =</span> <span class="fu">index</span>(aapl_prices),</span>
+<span id="cb39-6"><a href=""></a>                      <span class="at">Price =</span> <span class="fu">as.numeric</span>(aapl_prices),</span>
+<span id="cb39-7"><a href=""></a>                      <span class="at">Kalman =</span> <span class="fu">as.numeric</span>(<span class="fu">dropFirst</span>(s<span class="sc">$</span>s)))</span>
+<span id="cb39-8"><a href=""></a></span>
+<span id="cb39-9"><a href=""></a><span class="co"># Plot the results using ggplot</span></span>
+<span id="cb39-10"><a href=""></a>data_df <span class="sc">|&gt;</span> </span>
+<span id="cb39-11"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date)) <span class="sc">+</span></span>
+<span id="cb39-12"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Price, <span class="at">color =</span> <span class="st">"Price"</span>)) <span class="sc">+</span></span>
+<span id="cb39-13"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Kalman, <span class="at">color =</span> <span class="st">"Kalman"</span>)) <span class="sc">+</span></span>
+<span id="cb39-14"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Apple Inc. (AAPL) Stock Prices"</span>,</span>
+<span id="cb39-15"><a href=""></a>       <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb39-16"><a href=""></a>       <span class="at">y =</span> <span class="st">"Adjusted Close"</span>) <span class="sc">+</span></span>
+<span id="cb39-17"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Series"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Price"</span> <span class="ot">=</span> <span class="st">"black"</span>, <span class="st">"Kalman"</span> <span class="ot">=</span> <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb39-18"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch"></section>
+<section id="choosing-the-right-smoothing-technique" class="slide level2">
+<h2>Choosing the Right Smoothing Technique</h2>
+<ul>
+<li>Depends on the characteristics of the financial time series data</li>
+<li>Consider the desired smoothing level and specific application or analysis goals</li>
+<li>Explore multiple smoothing methods and compare their performance</li>
+<li>Consider the trade-off between smoothing and preserving important features or patterns</li>
+<li>Excessive smoothing can lead to loss of valuable information</li>
+<li>Insufficient smoothing may fail to effectively remove unwanted noise</li>
+</ul>
+</section>
+<section id="combining-smoothing-techniques" class="slide level2">
+<h2>Combining Smoothing Techniques</h2>
+<ul>
+<li>Financial analysts and researchers may combine different smoothing techniques</li>
+<li>Advanced methods like wavelets or machine learning algorithms can be used</li>
+<li>Helps extract meaningful insights from complex financial time series data</li>
+</ul>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li><p>EDA in time</p></li>
+<li><p>Smoothing techniques are essential for analyzing financial time series data</p></li>
+<li><p>Moving averages, exponential moving averages, and other methods are widely used</p></li>
+<li><p>Each method has its own advantages, limitations, and specific use cases</p></li>
 </ul>
 <div class="quarto-auto-generated-content">
 <p><img src="qbslogo.png" class="slide-logo"></p>
@@ -1521,7 +1827,7 @@ p_t-p_{t-1} = a_t \\
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'c/t',
+        slideNumber: false,
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
