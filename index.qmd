@@ -1,5 +1,5 @@
 ---
-title: "Exploratory Data Analysis <br> Time Series Smoothing" 
+title: "Exploring Data, Normality, and Smoothing" 
 author: "Barry Quinn <br> Digital Dave"
 footer: "Advanced Financial Data Analytics"
 css: mycssblend.css
@@ -8,6 +8,7 @@ title-slide-attributes:
   data-background-image: title-slide.png
   data-background-size: cover
   data-background-opacity: "0.5"
+embed-resources: true
 format: 
   revealjs:
     slide-number: c/t
@@ -15,6 +16,8 @@ format:
 execute:
   echo: true
 ---
+
+
 ```{r}
 #| include: false
 library(tidyverse)
@@ -23,6 +26,7 @@ library(fpp2)
 library(DT)
 ```
 
+# Exploring Data
 
 ## Outline
 
@@ -862,10 +866,6 @@ p_t-p_{t-1} = a_t \\
   - Overfitting or data snooping can result in your model capturing both **signal** and **noise**.
   - Overfitted models usually produce poor predictions and inferences.
 
----
-title: "Financial Time Series Analysis Techniques"
-format: revealjs
----
 
 # Time Series Modelling
 
