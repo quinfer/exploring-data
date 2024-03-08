@@ -524,11 +524,28 @@ glen_m %>%
 
 >Read Bailey, D. H. & Prado, M. L. de. Finance is Not Excused: Why Finance Should Not Flout Basic Principles of Statistics. Ssrn Electron J (2021) doi:10.2139/ssrn.gi3895330.
 
+## A NHST for normality {.small}
+
+* The Shapiro-Wilk test is a test of the null hypothesis that the data is normally distributed.
+* The test statistic is $W$ and the null hypothesis is that the data is normally distributed.
+* The test is sensitive to the tails of the distribution and is recommended for small samples.
+```{r}
+shapiro.test(glen_m$log_return)
+```
+
+## Lung-Box test {.small}
+
+- The Lung-Box test is a test of the null hypothesis that the data is independently and identically distributed.
+- The test statistic is $Q$ and the null hypothesis is that the data is independently and identically distributed.
+- The test is sensitive to the tails of the distribution and is recommended for small samples.
+```{r}
+Box.test(glen_m$log_return,lag = 5, type="Ljung-Box")
+```
 
 ## Are stock returns distributed normally? {.small}
 
 ### Statistical inference
-  
+* Both test give different result!!  
 * Assuming the models underpinning the previous NHST are valid, we can reject the Null that Glencore monthly log returns are normally distributed at even the 1% significance level.
 
 ### Practical inference

@@ -1,0 +1,75 @@
+---
+title: "Journal Search App"
+format: html
+server: shiny
+---
+
+```{r setup, include=FALSE}
+library(shiny)
+library(DT)
+library(reticulate)
+```
+
+## Sidebar {.sidebar}
+
+```{r}
+selectInput("field", "Field:",
+            choices = c("FINANCE", "ACCOUNTING", "ECONOMICS"))
+
+selectInput("rating", "AJR Rating:",
+            choices = c("3", "4", "4*"))
+
+actionButton("search", "Search")
+```
+
+## Search Results
+
+```{r}
+results <- reactiveValues(data = NULL)
+
+observeEvent(input$search, {
+  py_run_string('
+import os
+import configparser
+
+config_file = os.path.expanduser("~/.config/pybliometrics.cfg")
+
+if not os.path.exists(config_file):
+    config = configparser.ConfigParser()
+    config["Authentication"] = {"InstToken": "your_inst_token_here"}
+    with open(config_file, "w") as f:
+        config.write(f)
+
+import pandas as pd
+from pybliometrics.scopus import ScopusSearch, AbstractRetrieval
+
+df = pd.read_csv("JCR_ABS.csv")
+finance_journals = df[(df["Field"] == "' + input$field + '") & (df["AJG 2021"].isin(["' + input$rating + '"]))]
+journal_titles = finance_journals["Journal Title"].tolist()
+journal_query_parts = [f\'SRCTITLE ( "{title}" )\' for title in journal_titles]
+journal_query_string = " OR ".join(journal_query_parts)
+final_query_template = f\'TITLE-ABS-KEY ( "Insider Trading" OR "Illegal Trading") AND ( {journal_query_string} )\'
+
+s = ScopusSearch(final_query_template, download=True, subscriber=True)
+df = pd.DataFrame(s.results)
+df.to_csv("insider_trading.csv")
+  ')
+
+  results$data <- read.csv("insider_trading.csv")
+})
+
+renderDataTable({
+  datatable(results$data, options = list(pageLength = 10))
+})
+
+downloadButton("download_csv", "Download CSV")
+
+output$download_csv <- downloadHandler(
+  filename = function() {
+    "insider_trading.csv"
+  },
+  content = function(file) {
+    write.csv(results$data, file, row.names = FALSE)
+  }
+)
+```
